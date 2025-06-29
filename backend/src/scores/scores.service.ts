@@ -3,7 +3,9 @@ import { CreateScoreDto } from './dto/create-score.dto';
 import { UpdateScoreDto } from './dto/update-score.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Score } from './entities/score.entity';
-import { Repository } from 'typeorm';
+import { Between, Repository } from 'typeorm';
+import { Level, Subject } from 'src/statistics/response/statistics.response';
+
 
 @Injectable()
 export class ScoresService {
@@ -12,6 +14,18 @@ export class ScoresService {
     @InjectRepository(Score)
     private readonly scoreRepo: Repository<Score>,
   ) { }
+
+  public async searchScore(registration: number) {
+    return this.scoreRepo.findOneBy({ registrationNumber: registration });
+  }
+
+  public async countByLevel(subject: Subject, level: Level) {
+    return await this.scoreRepo.count({
+      where: {
+        [subject]: Between(level.min, level.max),
+      },
+    });
+  }
 
   create(createScoreDto: CreateScoreDto) {
     return 'This action adds a new score';
