@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { ScoresService } from 'src/scores/scores.service';
 import { Group, Level, LevelCount, Subject, SubjectReport, TotalReport } from './types/statistics.types';
 import { levels } from './utils/statistics.utils';
+import { ScoresService } from '../scores/scores.service';
 
 @Injectable()
 export class StatisticsService {

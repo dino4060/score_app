@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ScoresModule } from 'src/scores/scores.module';
+import { ScoresModule } from 'src/features/scores/scores.module';
 import { StatisticsController } from './statistics.controller';
 import { StatisticsService } from './statistics.service';
 

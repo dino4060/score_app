@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { StatisticsService } from './statistics.service';
 import { Subject } from './types/statistics.types';
 import { subjects as allSubjects, groups } from './utils/statistics.utils';
+import { StatisticsService } from './statistics.service';
 
 @Controller('report')
 export class StatisticsController {

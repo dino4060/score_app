@@ -1,4 +1,4 @@
-import { Score } from "src/scores/entities/score.entity";
+import { Score } from "src/features/scores/entities/score.entity";
 
 export type Subject =
     'math' | 'literature' | 'language2' |

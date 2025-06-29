@@ -4,9 +4,8 @@ import { AppService } from './app.service';
 import { DataSource } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
-import { ScoresModule } from './scores/scores.module';
-import { StatisticsModule } from './statistics/statistics.module';
-
+import { ScoresModule } from './features/scores/scores.module';
+import { StatisticsModule } from './features/statistics/statistics.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
