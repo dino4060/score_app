@@ -1,10 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { CreateScoreDto } from './dto/create-score.dto';
-import { UpdateScoreDto } from './dto/update-score.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Score } from './entities/score.entity';
+import { Group, Level, ScoreByGroup, Subject } from 'src/statistics/types/statistics.types';
 import { Between, Repository } from 'typeorm';
-import { Group, Level, ScoreByGroup, Subject } from 'src/statistics/response/statistics.response';
+import { Score } from './entities/score.entity';
 
 @Injectable()
 export class ScoresService {

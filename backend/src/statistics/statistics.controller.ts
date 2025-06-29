@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { StatisticsService } from './statistics.service';
-import { Group, Subject } from './response/statistics.response';
+import { Subject } from './types/statistics.types';
 import { subjects as allSubjects, groups } from './utils/statistics.utils';
 
 @Controller('report')

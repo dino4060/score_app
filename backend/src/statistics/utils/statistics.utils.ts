@@ -1,4 +1,4 @@
-import { Group, Level, Subject } from "../response/statistics.response";
+import { Group, Level, Subject } from "../types/statistics.types";
 
 export const levels: Level[] = [
     { name: 'good', min: 8, max: 10 },
