@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ScoresService } from 'src/scores/scores.service';
-import { Level, LevelCount, Subject, SubjectReport, TotalReport } from './response/statistics.response';
+import { Group, Level, LevelCount, Subject, SubjectReport, TotalReport } from './response/statistics.response';
 import { levels } from './utils/statistics.utils';
 
 @Injectable()
@@ -45,6 +45,11 @@ export class StatisticsService {
         }
 
         return { reports } as TotalReport;
+    }
+
+    // 👉 Top for 1 group
+    async topGroup(group: Group) {
+        return this.scoreService.topGroup(group);
     }
 
 }

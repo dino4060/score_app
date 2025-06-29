@@ -1,7 +1,7 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { StatisticsService } from './statistics.service';
-import { Subject } from './response/statistics.response';
-import { subjects as allSubjects } from './utils/statistics.utils';
+import { Group, Subject } from './response/statistics.response';
+import { subjects as allSubjects, groups } from './utils/statistics.utils';
 
 @Controller('report')
 export class StatisticsController {
@@ -18,8 +18,13 @@ export class StatisticsController {
       subjectsToQuery = allSubjects.filter((subject) => subjects.includes(subject));
     }
 
-    //return "oke" + " " + subjects + " " + subjectsToQuery;
-
     return this.statisticsService.reportBySubjects(subjectsToQuery);
+  }
+
+  @Get('tops/group')
+  async topGroup(@Query('group') group: string) {
+    const groupToQuery = groups.find(g => g.name === group) ?? groups[0];
+    //return groupToQuery;
+    return this.statisticsService.topGroup(groupToQuery);
   }
 }

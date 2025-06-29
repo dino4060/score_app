@@ -1,7 +1,15 @@
+import { Score } from "src/scores/entities/score.entity";
+
 export type Subject =
-    | 'math' | 'literature' | 'language2'
-    | 'physics' | 'chemistry' | 'biology'
-    | 'history' | 'geography' | 'civics';
+    'math' | 'literature' | 'language2' |
+    'physics' | 'chemistry' | 'biology' |
+    'history' | 'geography' | 'civics';
+
+export type Group = {
+    name: 'A00' | 'A01' | 'A02' | 'B00' | 'C00' | 'D00',
+    subjects: Subject[];
+    language2_type?: String;
+};
 
 export type Level = {
     name: 'good' | 'fair' | 'standard' | 'bad';
@@ -22,3 +30,8 @@ export type SubjectReport = {
 export type TotalReport = {
     reports: SubjectReport[]
 }
+
+export type ScoreByGroup = Partial<Score> & {
+    registrationNumber: number;
+    total: number;
+};
