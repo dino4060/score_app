@@ -58,57 +58,56 @@ export default function SearchPage() {
         <div className="flex flex-1 flex-col p-4 lg:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
             <div className="flex flex-col gap-6 w-full max-w-2xl mx-auto">
 
-                {/* Phần "Tìm kiếm điểm số" */}
-                <Card className="w-full rounded-xl shadow-lg">
-                    <CardHeader className="border-b pb-4">
-                        <CardTitle className="text-xl font-medium text-gray-900 dark:text-gray-100">
-                            Tra cứu điểm số
+                {/* Search area*/}
+                <Card className="w-full rounded-lg shadow-lg">
+                    <CardHeader>
+                        <CardTitle className="text-xl font-medium">
+                            Search your test result
                         </CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-6">
+                    <CardContent>
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                            <form onSubmit={form.handleSubmit(onSubmit)}
+                                className="space-y-4"
+                            >
                                 <FormField
                                     control={form.control}
                                     name="registrationNumber"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel className="text-lg font-medium text-gray-800 dark:text-gray-200">
-                                                Số đăng ký:
+                                            <FormLabel>
+                                                Registration number
                                             </FormLabel>
                                             <FormControl>
                                                 <Input
-                                                    placeholder="VD: 1234567"
-                                                    className="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-gray-100 transition-all duration-200"
+                                                    placeholder="Enter your 7-digit registration number"
+                                                    className="w-full text-center"
                                                     {...field}
                                                 />
                                             </FormControl>
-                                            <FormMessage className="text-red-500 text-sm mt-1" />
+                                            <FormMessage />
                                         </FormItem>
                                     )}
                                 />
                                 <Button
                                     type="submit"
-                                    className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-300 ease-in-out transform hover:scale-105"
+                                    className="w-full bg-primary hover:bg-primary/90 text-white"
                                 >
-                                    Tìm kiếm
+                                    Search
                                 </Button>
                             </form>
                         </Form>
                     </CardContent>
                 </Card>
 
-                {/* Phần "Điểm số chi tiết" */}
-                <Card className="w-full rounded-xl shadow-lg">
-                    <CardHeader className="border-b pb-4">
-                        <CardTitle className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-                            Kết quả chi tiết
+                {/* Detail Area */}
+                <Card className="w-full rounded-lg shadow-lg">
+                    <CardHeader>
+                        <CardTitle className="text-xl font-medium">
+                            Show your test result
                         </CardTitle>
-                        <CardDescription className="text-gray-600 dark:text-gray-400">
-                            Hiển thị điểm số chi tiết của học sinh.
-                        </CardDescription>
                     </CardHeader>
-                    <CardContent className="pt-6">
+                    <CardContent>
                         {showDetails ? (
                             <p className="text-lg text-gray-700 dark:text-gray-300 font-medium text-center py-8">
                                 Tính năng xem chi tiết đang được triển khai.
