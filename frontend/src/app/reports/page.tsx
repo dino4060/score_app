@@ -2,10 +2,6 @@
 import { ChartAreaInteractive } from "@/components/chart-area-interactive";
 import { SectionCards } from "@/components/section-cards";
 
-// Lưu ý: data.json có thể không cần ở đây nếu nó chỉ dùng cho DataTable
-// Nếu SectionCards hoặc ChartAreaInteractive cần data, bạn cần import vào.
-// Tuy nhiên, theo yêu cầu, chỉ cần các component dưới đây.
-
 export default function ReportsPage() {
     return (
         <div className="flex flex-1 flex-col">
