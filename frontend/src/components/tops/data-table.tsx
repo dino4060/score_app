@@ -372,7 +372,7 @@ export function DataTable({
         )}
 
 
-        <div className="flex items-center justify-between px-4">
+        {/* <div className="flex items-center justify-between px-4">
           <div className="text-muted-foreground hidden flex-1 text-sm lg:flex">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
@@ -448,7 +448,7 @@ export function DataTable({
               </Button>
             </div>
           </div>
-        </div>
+        </div> */}
       </TabsContent>
 
     </Tabs>

@@ -85,7 +85,7 @@ export default function ReportsPage() {
     }, [reportData, selectedSubjects, isAllSelected]);
 
     return (
-        <div className="flex flex-1 flex-col p-4 lg:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <div className="flex flex-1 flex-col p-4 lg:p-6 bg-gray-50 dark:bg-gray-900">
             <div className="flex flex-col gap-6 w-full max-w-4xl mx-auto">
 
                 {/* Component cho khu vực chọn môn học */}

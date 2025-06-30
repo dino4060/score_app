@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { ScoresModule } from './features/scores/scores.module';
 import { StatisticsModule } from './features/statistics/statistics.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
