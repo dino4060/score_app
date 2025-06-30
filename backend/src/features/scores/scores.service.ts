@@ -5,6 +5,7 @@ import { Between, Repository } from 'typeorm';
 import { Score } from './entities/score.entity';
 import { GroupScore, ScoreByGroup } from './types/score.types';
 import { groups } from '../statistics/utils/statistics.utils';
+import { occurError } from 'src/utils/index.utils';
 
 @Injectable()
 export class ScoresService {
@@ -49,7 +50,7 @@ export class ScoresService {
   public async searchScore(registration: number) {
     const studentScore = await this.scoreRepo.findOneBy({ registrationNumber: registration });
 
-    if (!studentScore) return null;
+    if (!studentScore) return occurError('Sorry, this registration number does not exist.');
 
     const groupScore = await this.calculateGroupScores(studentScore);
 

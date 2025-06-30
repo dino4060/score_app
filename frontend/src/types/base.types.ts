@@ -8,7 +8,11 @@ export type TApiDefinition<T> = {
     body?: object;
 };
 
-export type TApiResponse<T> = T;
+export type TError = {
+    message: string
+}
+
+export type TApiResponse<T> = T | TError;
 
 export type TPagination = {
     totalPages: number;

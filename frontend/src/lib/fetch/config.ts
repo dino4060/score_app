@@ -1,4 +1,4 @@
-import { TApiDefinition, TApiResponse } from "@/types/base.types";
+import { TApiDefinition, TApiResponse, TError } from "@/types/base.types";
 import { env } from "../env";
 import { HttpMethod } from "../constants";
 
@@ -50,19 +50,17 @@ export function shouldAuth(route: string, withAuth: boolean = false): boolean {
 }
 
 export const normalizeResponse = async <T>(response: Response) => {
-    const json = await response.json() as TApiResponse<T>;
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-    // if (!json.success) {
-    //     console.warn(`>>> normalizeResponse: fetch error: ${json.error}`);
-    // }
+    const json = await response.json() as TApiResponse<T>;
 
     return json;
 }
 
 export const normalizeError = <T>(error: any) => {
-    console.error(`>>> normalizeError: fetch error: ${error.message || 'Lỗi không xác định'}`);
+    console.error(`>>> normalizeError: fetch error: ${error.message || 'An error occurred. Please try again.'}`);
 
-    return { error: 'Lỗi không xác định' } as T;
+    return { message: 'An error occurred. Please try again.' } as TError;
 }
 
 export const fetchSafely = async <T = any>(

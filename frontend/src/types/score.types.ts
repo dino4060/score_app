@@ -1,8 +1,8 @@
-import { Group } from "./report.types";
+import { TGroup } from "./report.types";
 
 export type TScore = {
     id: number;
-    registrationNumber: number | null;
+    registrationNumber: number;
     math: number | null;
     literature: number | null;
     language2: number | null;
@@ -12,14 +12,19 @@ export type TScore = {
     history: number | null;
     geography: number | null;
     civics: number | null;
-    language2_type: string | null;
+    language2Type: string | null;
 }
 
-export type ScoreByGroup = Partial<TScore> & {
+export type TScoreByGroup = Partial<TScore> & {
     registrationNumber: number;
     total: number;
 };
 
-export type GroupScore = {
-    [key in Group['group']]: number | null;
+export type TGroupScore = {
+    [key in TGroup]: number | null;
+};
+
+export type TSearchScore = {
+    studentScore: TScore;
+    groupScore: TGroupScore;
 };

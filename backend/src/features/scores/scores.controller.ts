@@ -1,5 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { ScoresService } from './scores.service';
+import { occurError } from 'src/utils/index.utils';
 
 @Controller('public/scores')
 export class PublicScoresController {
@@ -9,7 +10,8 @@ export class PublicScoresController {
   searchScore(@Param('registration') registration: string) {
     const registrationNumber = Number(registration)
 
-    if (isNaN(registrationNumber)) return null;
+    if (isNaN(registrationNumber))
+      return occurError('Registration number must be a number.');
 
     return this.scoresService.searchScore(registrationNumber);
   }
