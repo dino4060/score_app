@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react"
 import * as React from "react"
 
-import { NavMain } from "@/components/nav-main"
+import { NavMain } from "@/components/dashboard/nav-main"
 import {
   Sidebar,
   SidebarContent,

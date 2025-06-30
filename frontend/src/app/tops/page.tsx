@@ -1,7 +1,7 @@
 // app/tops/page.tsx
 "use client";
 
-import { DataTable } from "@/components/data-table";
+import { DataTable } from "@/components/dashboard/data-table";
 import { api } from "@/lib/api";
 import { clientFetch } from "@/lib/fetch/fetch.client";
 import { TGroup, TGroupQuery, TSubject } from "@/types/report.types";

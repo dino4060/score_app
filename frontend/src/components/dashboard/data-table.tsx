@@ -772,7 +772,7 @@ import {
 import { useIsMobile } from "@/hooks/use-mobile"
 import { TGroup, TSubject } from "@/types/report.types"
 import { TScoreByGroup } from "@/types/score.types"
-import { Skeleton } from "./ui/skeleton"
+import { Skeleton } from "../ui/skeleton"
 
 
 function DragHandle({ id }: { id: number }) {
