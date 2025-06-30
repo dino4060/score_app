@@ -1,6 +1,29 @@
+import { api } from "@/lib/api";
+import { serverFetch } from "@/lib/fetch/fetch.server";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  // const resultOfSearchScore = await serverFetch(
+  //   api.scores.searchScore('1000111'));
+
+  // console.log('>>> resultOfSearchScore: ', resultOfSearchScore);
+
+  // const resultOfReportSubjects = await serverFetch(
+  //   api.reports.reportSubjects([{ subject: 'math' }, { subject: 'literature' }]));
+
+  // console.log('>>> resultOfReportSubjects: ', resultOfReportSubjects);
+
+  const resultOfReportAllSubjects = await serverFetch(
+    api.reports.reportSubjects([]));
+
+  console.log('>>> resultOfReportAllSubjects: ', resultOfReportAllSubjects);
+
+  // const resultOfTopGroup = await serverFetch(
+  //   api.reports.topGroup({ group: 'D00' }));
+
+  // console.log('>>> resultOfTopGroup: ', resultOfTopGroup);
+
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">

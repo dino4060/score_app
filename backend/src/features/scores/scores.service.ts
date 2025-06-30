@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Group, Level, ScoreByGroup, Subject } from 'src/features/statistics/types/statistics.types';
+import { Group, Level, Subject } from 'src/features/statistics/types/statistics.types';
 import { Between, Repository } from 'typeorm';
 import { Score } from './entities/score.entity';
+import { ScoreByGroup } from './types/score.types';
 
 @Injectable()
 export class ScoresService {

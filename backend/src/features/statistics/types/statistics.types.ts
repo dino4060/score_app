@@ -1,5 +1,3 @@
-import { Score } from "src/features/scores/entities/score.entity";
-
 export type Subject =
     'math' | 'literature' | 'language2' |
     'physics' | 'chemistry' | 'biology' |
@@ -30,8 +28,3 @@ export type SubjectReport = {
 export type TotalReport = {
     reports: SubjectReport[]
 }
-
-export type ScoreByGroup = Partial<Score> & {
-    registrationNumber: number;
-    total: number;
-};
