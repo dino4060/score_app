@@ -26,8 +26,8 @@ export class ScoresService {
     };
 
     for (const group of groups) {
-      // check language2_type
-      if (group.language2_type && score.language2Type !== group.language2_type) {
+      // check language2Type
+      if (group.language2Type && score.language2Type !== group.language2Type) {
         result[group.name] = null;
         continue;
       }
@@ -69,23 +69,23 @@ export class ScoresService {
   }
 
   public async topGroup(group: Group) {
-    const { subjects, language2_type } = group;
+    const { subjects, language2Type: language2Type } = group;
 
     const totalExpress = subjects.map(s => `score.${s}`).join(' + ');
 
     const query = this.scoreRepo
       .createQueryBuilder('score')
       .select([
-        'score.registrationNumber',
-        ...subjects.map(s => `score.${s}`),
+        'score.registrationNumber AS registrationNumber',
+        ...subjects.map(s => `score.${s} AS ${s}`),
         `${totalExpress} AS total`,
       ])
       .where(`${subjects.map(s => `score.${s} IS NOT NULL`).join(' AND ')}`)
       .orderBy('total', 'DESC')
       .limit(10);
 
-    if (language2_type) {
-      query.andWhere('score.language2_type = :lang', { lang: language2_type });
+    if (language2Type) {
+      query.andWhere('score.language2Type = :lang', { lang: language2Type });
     }
 
     const result = await query.getRawMany();

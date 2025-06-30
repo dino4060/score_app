@@ -15,9 +15,9 @@ export const subjects: Subject[] = [
 
 export const groups: Group[] = [
     { name: 'A00', subjects: ['math', 'physics', 'chemistry'] },
-    { name: 'A01', subjects: ['math', 'physics', 'language2'], language2_type: 'N1' },
+    { name: 'A01', subjects: ['math', 'physics', 'language2'], language2Type: 'N1' },
     { name: 'A02', subjects: ['math', 'physics', 'biology'] },
     { name: 'B00', subjects: ['math', 'biology', 'chemistry'] },
     { name: 'C00', subjects: ['literature', 'history', 'geography'] },
-    { name: 'D00', subjects: ['literature', 'math', 'language2'], language2_type: 'N1' },
+    { name: 'D00', subjects: ['literature', 'math', 'language2'], language2Type: 'N1' },
 ];

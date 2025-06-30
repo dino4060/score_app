@@ -6,7 +6,7 @@ export type Subject =
 export type Group = {
     name: 'A00' | 'A01' | 'A02' | 'B00' | 'C00' | 'D00',
     subjects: Subject[];
-    language2_type?: String;
+    language2Type?: String;
 };
 
 export type Level = {
