@@ -1,9 +1,6 @@
-import { AppSidebar } from "@/components/dashboard/app-sidebar";
-import { SiteHeader } from "@/components/dashboard/site-header";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/layout/app-sidebar";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
