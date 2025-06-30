@@ -13,10 +13,10 @@ export default async function Home() {
 
   // console.log('>>> resultOfReportSubjects: ', resultOfReportSubjects);
 
-  const resultOfReportAllSubjects = await serverFetch(
-    api.reports.reportSubjects([]));
+  // const resultOfReportAllSubjects = await serverFetch(
+  //   api.reports.reportSubjects([]));
 
-  console.log('>>> resultOfReportAllSubjects: ', resultOfReportAllSubjects);
+  // console.log('>>> resultOfReportAllSubjects: ', resultOfReportAllSubjects);
 
   // const resultOfTopGroup = await serverFetch(
   //   api.reports.topGroup({ group: 'D00' }));
