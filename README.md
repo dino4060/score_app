@@ -19,3 +19,7 @@ How to run the backend-end app locally
 
 Notice:
 - Should use `20.18.1` to run seamlessly
+
+Orientation:
+- Use Redis-based Caching to fetch tops student and reports quickly
+- Use Rate Limiting to restrict abuse of customer
