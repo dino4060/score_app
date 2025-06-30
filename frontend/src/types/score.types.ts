@@ -1,3 +1,5 @@
+import { Group } from "./report.types";
+
 export type TScore = {
     id: number;
     registrationNumber: number | null;
@@ -16,4 +18,8 @@ export type TScore = {
 export type ScoreByGroup = Partial<TScore> & {
     registrationNumber: number;
     total: number;
+};
+
+export type GroupScore = {
+    [key in Group['group']]: number | null;
 };

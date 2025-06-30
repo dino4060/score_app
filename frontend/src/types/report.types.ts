@@ -24,7 +24,6 @@ export type Group = {
     group: 'A00' | 'A01' | 'A02' | 'B00' | 'C00' | 'D00'
 };
 
-
 export type Level = 'good' | 'fair' | 'standard' | 'bad';
 
 export type LevelCount = {

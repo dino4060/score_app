@@ -36,5 +36,5 @@ export class Score {
     civics: number | null;
 
     @Column('varchar', { length: 10, nullable: true })
-    language2_type: string | null;
+    language2Type: string | null;
 }

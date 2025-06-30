@@ -3,7 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Group, Level, Subject } from 'src/features/statistics/types/statistics.types';
 import { Between, Repository } from 'typeorm';
 import { Score } from './entities/score.entity';
-import { ScoreByGroup } from './types/score.types';
+import { GroupScore, ScoreByGroup } from './types/score.types';
+import { groups } from '../statistics/utils/statistics.utils';
 
 @Injectable()
 export class ScoresService {
@@ -13,8 +14,49 @@ export class ScoresService {
     private readonly scoreRepo: Repository<Score>,
   ) { }
 
+  public async calculateGroupScores(score: Score) {
+    const result: GroupScore = {
+      A00: null,
+      A01: null,
+      A02: null,
+      B00: null,
+      C00: null,
+      D00: null,
+    };
+
+    for (const group of groups) {
+      // check language2_type
+      if (group.language2_type && score.language2Type !== group.language2_type) {
+        result[group.name] = null;
+        continue;
+      }
+
+      const subjectScores = group.subjects.map((subject) => score[subject]);
+
+      if (subjectScores.some((val) => val == null)) {
+        result[group.name] = null;
+        continue;
+      }
+
+      const total = (subjectScores as number[]).reduce((sum, val) => sum + val, 0);
+      result[group.name] = total;
+    }
+
+    return result;
+  }
+
+
   public async searchScore(registration: number) {
-    return this.scoreRepo.findOneBy({ registrationNumber: registration });
+    const studentScore = await this.scoreRepo.findOneBy({ registrationNumber: registration });
+
+    if (!studentScore) return null;
+
+    const groupScore = await this.calculateGroupScores(studentScore);
+
+    return {
+      studentScore,
+      groupScore,
+    };
   }
 
   public async countByLevel(subject: Subject, level: Level) {
