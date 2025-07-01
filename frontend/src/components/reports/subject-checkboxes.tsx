@@ -23,7 +23,7 @@ export default function SubjectCheckboxes({
     return (
         <Card className="rounded-lg shadow-lg">
             <CardHeader>
-                <CardTitle className="text-xl font-medium">Chọn môn học</CardTitle>
+                <CardTitle className="text-xl font-medium">Choose subjects</CardTitle>
             </CardHeader>
             <CardContent>
                 <div className="flex flex-wrap gap-4 items-center">
