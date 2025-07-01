@@ -9,7 +9,7 @@ import { TScoreByGroup } from "@/types/score.types";
 import { useEffect, useState } from "react";
 
 // Định nghĩa các khối (groups) đầy đủ, đã được cung cấp
-export const fullGroups: { name: TGroup, subjects: TSubject[], language2Type?: string }[] = [
+const fullGroups: { name: TGroup, subjects: TSubject[], language2Type?: string }[] = [
     { name: 'A00', subjects: ['math', 'physics', 'chemistry'] },
     { name: 'A01', subjects: ['math', 'physics', 'language2'], language2Type: 'N1' },
     { name: 'A02', subjects: ['math', 'physics', 'biology'] },
