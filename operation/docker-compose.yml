@@ -1,0 +1,85 @@
+services:
+  database:
+    image: postgres:12.22
+    restart: "no"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: gscore
+    ports:
+      - 5435:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - gscore_network
+
+volumes:
+  postgres_data:
+
+networks:
+  gscore_network:
+    driver: bridge
+
+## Docker Compose ##
+
+# docker compose version
+
+# cd devops
+# docker compose -p deal up -d
+# docker compose -p deal down
+# docker compose -p deal start
+# docker compose -p deal stop
+
+# docker compose -f devops/docker-compose.yml -p deal up -d
+# docker compose -f devops/docker-compose.yml -p deal down
+
+# docker compose -p deal up -d db-redis
+# docker compose -p deal down db-redis
+# docker compose -p deal rm -s -f db-redis
+
+# NOTE: Docker Compose
+# -p <project-name>: đặt tên và tìm đến project-name
+# -f <file-name>: tìm đến file docker-compose không theo mặc định
+# -d (--detach): run at background mode, don't log, return prompt
+# -s (--stop): stop before delete
+# -f (--force): force delete without confirming
+# up, down, rm: commands managed by Docker Compose
+
+## Docker Engine ##
+
+# docker ps
+# docker ps -a
+# docker volume ls
+# docker network ls
+
+# docker start postgres-12.22
+# docker stop postgres-12.22
+
+# NOTE: Docker Engine
+# start, stop: commands managed by Docker Engine
+# ps (process status): list running containers
+# ps -a (all): list all container
+# exec: để thực thi một lệnh bên trong môi trường một container đang chạy.
+# -it: lệnh kết hợp -i & -t
+# -i (interactive): giữ cho luồng input (bàn phím) mở => nhập lệnh.
+# -t (tty): tạo ra một terminal giả lập (có màu sắc, để nạn tương tác, gõ lệnh thoải mái).
+
+## REDIS ##
+
+# Pull db-redis:
+# - Image db-redis
+# - Network deal_deal-network
+# - Volume deal_redis-data
+# - Container deal-db-redis-1
+
+# Test db-redis:
+# docker exec -it deal-db-redis-1 redis-cli: mở Redis client
+# PING => PONG
+# SET user:1 "Dino" => OK
+# GET user:1 => "Dino"
+# SET user:1 "TN" => OK
+# GET user:1 => "TN"
+# DEL user:1 => (integer) 1
+# GET user:1 => (nil)
+# QUIT
+

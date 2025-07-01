@@ -5,7 +5,6 @@ type ApiConfig = {
     versioning: VersioningOptions;
 }
 
-// expect: /api/v1
 export const apiConfig: ApiConfig = {
     prefix: 'api',
     versioning: {

@@ -6,10 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { ScoresModule } from './features/scores/scores.module';
 import { StatisticsModule } from './features/statistics/statistics.module';
+import { ConfigModule } from '@nestjs/config';
+import { envConfig } from './config/env.config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
+    ConfigModule.forRoot(envConfig),
+    TypeOrmModule.forRootAsync(typeOrmConfig),
     ScoresModule,
     StatisticsModule
   ],
