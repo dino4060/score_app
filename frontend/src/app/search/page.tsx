@@ -18,7 +18,7 @@ import SearchForm from "@/components/search/search-form";
 import SearchResultsDisplay from "@/components/search/search-results-display";
 
 const formSchema = z.object({
-    registrationNumber: z.string().regex(/^\d{7}|\d{8}$/, {
+    registrationNumber: z.string().regex(/^\d{7,8}$/, {
         message: "The registration number should be a 7 or 8 digit number.",
     }),
 });

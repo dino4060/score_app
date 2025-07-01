@@ -13,8 +13,8 @@
 ![template example](./support/screenshots/top-page.png)
 
 Technology:
-- Frontend: NextJS 15 App Router
-- Backend: NestJS 11
+- Frontend: NextJS 15 App Router + Shadcn Design Library
+- Backend: NestJS 11 + TypeORM Library
 - Database: MySQL 9
 - Platform: Node version 20.18.1
 
