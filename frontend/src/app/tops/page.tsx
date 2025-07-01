@@ -37,6 +37,8 @@ export default function TopsPage() {
                 const result = await clientFetch<TScoreByGroup[]>(
                     api.reports.topGroup(groupQuery)
                 );
+                console.log("Fetched top group data: ", result);
+
                 setTableData(result as TScoreByGroup[]);
             } catch (err) {
                 console.error("Error fetching top group data:", err);
