@@ -1,7 +1,7 @@
 // src/scores/entities/score.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('scores_v3')
+@Entity('scores')
 export class Score {
     @PrimaryGeneratedColumn()
     id: number;
