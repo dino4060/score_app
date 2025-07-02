@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-const normalRoutes = ['/search', '/reports', '/tops'];
+const normalRoutes = ['/', '/search', '/reports', '/tops'];
 
 export default async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname
