@@ -76,7 +76,7 @@ export class ScoresService {
     const query = this.scoreRepo
       .createQueryBuilder('score')
       .select([
-        'score.registrationNumber AS registrationNumber',
+        'score."registrationNumber" AS "registrationNumber"',
         ...subjects.map(s => `score.${s} AS ${s}`),
         `${totalExpress} AS total`,
       ])
@@ -85,7 +85,7 @@ export class ScoresService {
       .limit(10);
 
     if (language2Type) {
-      query.andWhere('score.language2Type = :lang', { lang: language2Type });
+      query.andWhere('score."language2Type" = :lang', { lang: language2Type });
     }
 
     const result = await query.getRawMany();
